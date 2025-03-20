@@ -115,4 +115,13 @@ JOIN TRABALHA_EM TE ON F.Cpf = TE.Fcpf
 JOIN PROJETO P ON TE.Pnr = P.Projnumero
 WHERE F.Dnr = 5 AND P.Projnome = 'ProdutoX' AND TE.Horas > 10;
 
+SELECT F.Pnome, F.Unome
+FROM FUNCIONARIO F
+JOIN DEPENDENTE D ON F.Cpf = D.Fcpf
+WHERE F.Pnome = D.Nome_dependente;
+
+SELECT F.Pnome, F.Unome
+FROM FUNCIONARIO F
+WHERE F.Cpf_supervisor = (SELECT Cpf FROM FUNCIONARIO WHERE Pnome = 'Fernando' AND Unome = 'Wong');
+
 
